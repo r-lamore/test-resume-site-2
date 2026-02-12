@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachael Lamore - Product & Research Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a2e;
+            --secondary: #4a6b5f;
+            --accent: #5f9b7c;
+            --accent-2: #7eb69a;
+            --accent-3: #c7e5d3;
+            --warm-accent: #b8956a;
+            --background: #fdfdfb;
+            --surface: #f9faf9;
+            --border: #e1ede7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--background);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Subtle botanical background pattern */
+        /* Nature photo backgrounds with gradient overlays */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('tahoe-mountains.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.15;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                180deg, 
+                rgba(253, 253, 251, 0.85) 0%,
+                rgba(253, 253, 251, 0.92) 40%,
+                rgba(249, 250, 249, 0.95) 70%,
+                rgba(225, 237, 231, 0.97) 100%
+            );
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(253, 253, 251, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .headshot {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 32px;
+            border: 4px solid var(--accent);
+            box-shadow: 
+                0 8px 32px rgba(95, 155, 124, 0.2),
+                0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            max-width: 700px;
+            margin: 0 auto 48px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: white;
+            border-color: transparent;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(95, 155, 124, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(95, 155, 124, 0.2);
+        }
+
+        /* Quick Links Section */
+        .quick-links {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: rgba(249, 250, 249, 0.8);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at center, rgba(95, 155, 124, 0.1), transparent 70%);
+            border-radius: 50%;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(95, 155, 124, 0.15);
+            border-color: var(--accent);
+        }
+
+        .card:hover::before {
+            transform: scale(1.5);
+        }
+
+        .card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+
+        .card p {
+            color: var(--secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: var(--accent);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-link::after {
+            transform: translateX(4px);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(249, 250, 249, 0.5), rgba(225, 237, 231, 0.3));
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            text-align: center;
+            color: var(--secondary);
+            border-top: 1px solid var(--border);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            nav ul {
+                gap: 16px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .intro {
+                font-size: 1.05rem;
+            }
+
+            .hero {
+                padding: 100px 24px 40px;
+            }
+
+            .quick-links {
+                padding: 60px 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Rachael Lamore</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="headshot.jpg" alt="Rachael Lamore" class="headshot">
+            <h1>Rachael Lamore</h1>
+            <p class="tagline">Product & Research Professional</p>
+            <p class="intro">
+                Transforming user insights into product decisions through research excellence, 
+                data-driven strategy, and cross-functional leadership. Based in South Lake Tahoe, 
+                working with teams across the globe.
+            </p>
+            <div class="cta-buttons">
+                <a href="resume.html" class="btn btn-primary">View Resume</a>
+                <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h4>5+</h4>
+                <p>Years of Research Experience</p>
+            </div>
+            <div class="stat-item">
+                <h4>3</h4>
+                <p>Published Research Papers</p>
+            </div>
+            <div class="stat-item">
+                <h4>100K+</h4>
+                <p>Users Impacted</p>
+            </div>
+            <div class="stat-item">
+                <h4>∞</h4>
+                <p>Insights Generated</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="quick-links">
+        <h2 class="section-title">Explore My Work</h2>
+        <div class="cards-grid">
+            <a href="resume.html" class="card">
+                <h3>Professional Background</h3>
+                <p>
+                    Explore my experience leading research initiatives, analyzing complex data, 
+                    and driving product decisions at GearLab and Cal Poly.
+                </p>
+                <span class="card-link">View Resume</span>
+            </a>
+
+            <a href="projects.html" class="card">
+                <h3>Research & Projects</h3>
+                <p>
+                    Dive into my research portfolio including published papers, conference 
+                    presentations, and product research case studies.
+                </p>
+                <span class="card-link">See Projects</span>
+            </a>
+
+            <a href="contact.html" class="card">
+                <h3>Let's Connect</h3>
+                <p>
+                    Interested in collaborating or discussing product, research, or UX opportunities? 
+                    I'd love to hear from you.
+                </p>
+                <span class="card-link">Contact Me</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Cultivating insights, growing products</p>
+        <div class="social-links">
+            <a href="mailto:rlamore2323@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/rachael-lamore" target="_blank">LinkedIn</a>
+        </div>
+        <p style="margin-top: 24px; font-size: 0.9rem;">© 2026 Rachael Lamore • Last updated February 2026</p>
+    </footer>
+</body>
+</html>
